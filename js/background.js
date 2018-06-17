@@ -151,13 +151,15 @@ leadcookieClipper.Main = function() {
 					chrome.windows.getLastFocused(function(win) {
 						chrome.tabs.query({ active: true, windowId: win.id }, function(tabs) {
 							if (tabs.length) {
-								chrome.tabs.sendRequest(tabs[0].id, {type: 'getLeads'}, function(leads) {
-									// send back the leads data and info if given url has been saved for any orgs
-									sendResponse({
+
+								chrome.tabs.sendMessage(tabs[0].id, {type: 'getLeads'}, function(leads){
+										sendResponse({
 										leads: leads,
 										postedData: {}
 									});
 								});
+
+
 							}
 						});
 					});

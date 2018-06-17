@@ -11,6 +11,7 @@ $(document).ready(function() {
 
     var url = 'https://api.airtable.com/v0/' + airtable_base_id + '/Leads';
     var data = {"fields": {"List": airtable_list_id, "First Name": firstName, "Last Name": lastName, "LinkedIn URL": linked_in_url}}
+    console.log(data)
     var ajax = function() {
       $.ajax({
         url: url,
@@ -52,6 +53,7 @@ $(document).ready(function() {
         var sales_url = $(this).parents('tr').data('linkedin-url');
 
         var row = $(this).parents('tr');
+        console.log(row)
 
         $.ajax({
           url: sales_url,
@@ -66,15 +68,17 @@ $(document).ready(function() {
             // $(id).find('td:eq(2)').find('img').hide();
           },
           success: function(response) {
+            console.log(response)
             var re = /"publicLink":"(.*?)"/i;
             var linked_in_url_regex_response = response.match(re);
+            console.log(linked_in_url_regex_response)
             if(linked_in_url_regex_response) {
               var linked_in_url = linked_in_url_regex_response[1]
 
               var id = row.attr('id');
               $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL</p>');
 
-              postToAirtable(linked_in_url, id);
+              //postToAirtable(linked_in_url, id);
             } else {
               //
               // NORMAL CODE, BEING OVERWRITTNE TO HELP CLIPPING WITHOUT LINKEDIN URL
@@ -92,7 +96,7 @@ $(document).ready(function() {
               var id = row.attr('id');
               $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL</p>');
 
-              postToAirtable(linked_in_url, id);
+              //postToAirtable(linked_in_url, id);
             }
             
           },
@@ -165,6 +169,7 @@ $(document).ready(function() {
 
   // scrape the lead data off of the active tab
   chrome.extension.sendRequest({type: "getCurrentLeads"}, function(response) {
+    console.log('response of getCurrentLeads', response)
     // postedData = response.postedData;
     renderLeads(response.leads);
     markAlreadyScraped();
