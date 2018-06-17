@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/sign_in.js"></script>
+    <link rel="stylesheet" href="../css/sign_in.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="brand scroller" data-section="body" href="http://leadcookieprez.com" target="_blank">LeadCookie Clipper</a>
+    </div>
+
+    <div id="fux-container">
+      
+      <h5 id="h5_text">Add API Key and Base ID to get started</h5>
+
+      <h5 id="loading">Loading...</h5>
+
+      <div id="error" style="display: none;">Please fill in both fields</div>
+
+      <form id="login_form" accept-charset="UTF-8"<fieldset>
+        
+          <fieldset>
+          
+            <div class="form-group">
+              <label>Airtable API Key</label>
+              <input class="form-control" id="user_api_key" name="api_key" type="text" value="" placeholder="" />
+              <p class='form-text text-muted' style="text-align: left;">Hint: keyEAEw7xOU7q1L1j</p>
+            </div>
+
+            <div class="form-group">
+              <label>Base ID</label>
+              <input class="form-control" id="user_base_id" name="base_id" type="text" value="" />
+              <p class='form-text text-muted' style="text-align: left;">Hint: appuUWls8Cj9SBFh2</p>
+            </div>
+
+            <div class="form-group">
+              <label>List ID</label>
+              <input class="form-control" id="user_list_id" name="list_id" type="text" value="" />
+              <p class='form-text text-muted' style="text-align: left;">Hint: JoshCrews</p>
+            </div>
+          
+            <div class='form-group'>
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          
+          </fieldset>
+      </form>
+
+    <br />
+
+    <div id="success" style="display: none;">You have been successfully signed in.</div>
+
+    </div>
+</body>
+</html>

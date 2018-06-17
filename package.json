@@ -1,0 +1,8 @@
+{
+    "name": "leadcookie-lead-clipper",
+    "description": "leadcookie lead clipper",
+    "version": "1.4.7",
+    "dependencies": {
+    },
+    "private": true
+}

@@ -1,0 +1,122 @@
+{
+    "all_group_numbers": [], 
+    "date_created": "2015-08-25T15:20:09.193000+00:00", 
+    "date_updated": "2017-04-28T16:08:52.466000+00:00", 
+    "email": "josh@joshcrews.com", 
+    "email_accounts": [], 
+    "email_signatures": [], 
+    "first_name": "Josh", 
+    "id": "user_m9374qOdySe1VwbFWXFA9bQZv6s3ZX0AFQqDKs8qkYA", 
+    "image": "https://secure.gravatar.com/avatar/6e73d46131fc7915880f4d4ae42c6e53", 
+    "last_name": "Crews", 
+    "last_used_timezone": "America/Chicago", 
+    "memberships": [
+        {
+            "country": "US", 
+            "default_caller_id": "phon_iETcXqPDp8lG64Mjl2t9kL2yIfK2NIU6iZYg0VXcKj5", 
+            "hangup_recording_url": null, 
+            "id": "memb_wkuWzAyN35Ekplecs53wkn3NI4f9l4tFE5m62Bi9W0l", 
+            "is_free": false, 
+            "organization_id": "orga_ve8k0x6oskz4lTga3NlduC5bXIEnzHMjj1ufLq6QdDE", 
+            "plan_type": "enterprise", 
+            "primary_personal_number": "phon_iETcXqPDp8lG64Mjl2t9kL2yIfK2NIU6iZYg0VXcKj5", 
+            "record_calls": false, 
+            "role": "admin", 
+            "show_onboarding": false, 
+            "track_email_opens": true, 
+            "user_id": "user_m9374qOdySe1VwbFWXFA9bQZv6s3ZX0AFQqDKs8qkYA"
+        }
+    ], 
+    "organizations": [
+        {
+            "billing_account_id": "acct_iS8VnRkjcU3bRCjjfwcKsXzTw9FEsoa5fNKUa6FIkeH", 
+            "cancellation_date": null, 
+            "created_by": null, 
+            "currency": "USD", 
+            "currency_symbol": "$", 
+            "date_created": "2015-08-25T15:20:08.807000+00:00", 
+            "date_updated": "2017-04-28T17:50:26.586000+00:00", 
+            "id": "orga_ve8k0x6oskz4lTga3NlduC5bXIEnzHMjj1ufLq6QdDE", 
+            "lead_custom_fields": [], 
+            "lead_statuses": [
+                {
+                    "id": "stat_XRj3OqpfPhzUOQW7cRYgqRh6iGCVRmg13WaeHJ9Shc1", 
+                    "label": "Potential"
+                }, 
+                {
+                    "id": "stat_aHQLUVMSFfxBEwludVD2GD4cCQKWP2MkhemOVW5nEwB", 
+                    "label": "Bad Fit"
+                }, 
+                {
+                    "id": "stat_v1mpAEOYOE1ucgKRRp6T3pfXveW4mi0sQLUCCFpBZRr", 
+                    "label": "Qualified"
+                }, 
+                {
+                    "id": "stat_TdnyxL6uaDJso4Mfji71ASdeES3JuQeL65DNKfqZIaS", 
+                    "label": "Customer"
+                }
+            ], 
+            "leads_email": "josh_crews-cwuacer8@leads.leadcookie", 
+            "name": "Josh Crews", 
+            "opportunity_statuses": [
+                {
+                    "id": "stat_o98FCh8uZQkApWJDYKCCCHleUWAOeO6bcXcBskFbcFn", 
+                    "label": "Active", 
+                    "type": "active"
+                }, 
+                {
+                    "id": "stat_YcXWOq8Rtv8iH5jLzByo3WIlWwsd6015lKLZx2GD7lM", 
+                    "label": "Won", 
+                    "type": "won"
+                }, 
+                {
+                    "id": "stat_1nxYHiDn1GBC82FEwPV2R2JYDQbE7RdoiUsJwrIgsU7", 
+                    "label": "Lost", 
+                    "type": "lost"
+                }
+            ], 
+            "payment_fail_date": null, 
+            "status": "trial", 
+            "trial_ends": "2017-05-12T17:50:26+00:00", 
+            "updated_by": "user_m9374qOdySe1VwbFWXFA9bQZv6s3ZX0AFQqDKs8qkYA", 
+            "user_count": 1
+        }
+    ], 
+    "phone": "+16156002878", 
+    "phone_numbers": [
+        {
+            "date_created": "2017-04-28T17:50:28.109000+00:00", 
+            "date_updated": "2017-04-28T17:50:28.109000+00:00", 
+            "forward_to": null, 
+            "forward_to_enabled": false, 
+            "forward_to_formatted": null, 
+            "id": "phon_iETcXqPDp8lG64Mjl2t9kL2yIfK2NIU6iZYg0VXcKj5", 
+            "is_group_number": false, 
+            "label": null, 
+            "number": "+14432275653", 
+            "number_formatted": "+1 443-227-5653", 
+            "organization_id": "orga_ve8k0x6oskz4lTga3NlduC5bXIEnzHMjj1ufLq6QdDE", 
+            "press_1_to_accept": true, 
+            "sms_enabled": true, 
+            "type": "internal", 
+            "user_id": "user_m9374qOdySe1VwbFWXFA9bQZv6s3ZX0AFQqDKs8qkYA", 
+            "voicemail_greeting_url": null
+        }
+    ], 
+    "sip_user": {
+        "date_created": "2015-08-25T15:20:10.004000+00:00", 
+        "date_updated": "2017-03-09T09:08:11.261000+00:00", 
+        "dns_server": null, 
+        "log_level": 4, 
+        "secret": "xOdxzyywkkaz6eIsgSWbK0uLQ0SiVIuZ", 
+        "server": "phone.plivo.com", 
+        "store_recording_per_call": null, 
+        "stun_host": "stun.sipgate.net:10000", 
+        "transport": "tls", 
+        "use_ice": null, 
+        "use_nat_helper": true, 
+        "use_webrtc_browser": false, 
+        "use_webrtc_native": true, 
+        "username": "closeio1150825152009"
+    }
+}
