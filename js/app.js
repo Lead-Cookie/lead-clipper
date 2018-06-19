@@ -50,61 +50,71 @@ $(document).ready(function() {
       $('#leads-table table tbody').append(trs);
 
       $('.clip-lead').click(function(){
+
         var sales_url = $(this).parents('tr').data('linkedin-url');
-
+        //console.log(sales_url)
         var row = $(this).parents('tr');
-        console.log(row)
+        var id = row.attr('id');
+        //console.log(row)
 
-        $.ajax({
-          url: sales_url,
-          type: "GET",
+        postToAirtable(sales_url, id);
+        
+        // $.ajax({
+        //   url: sales_url,
+        //   type: "GET",
           
-          beforeSend: function() {
-            // row.find('td:eq(2)').html('<p><img height="10" src="../img/spinner.gif"/>');
-            row.find('td:eq(2)').html('<p>Fetching</p>');
-          },
-          complete: function(){
-            // var id = row.attr('id');
-            // $(id).find('td:eq(2)').find('img').hide();
-          },
-          success: function(response) {
-            console.log(response)
-            var re = /"publicLink":"(.*?)"/i;
-            var linked_in_url_regex_response = response.match(re);
-            console.log(linked_in_url_regex_response)
-            if(linked_in_url_regex_response) {
-              var linked_in_url = linked_in_url_regex_response[1]
+        //   beforeSend: function() {
+        //     // row.find('td:eq(2)').html('<p><img height="10" src="../img/spinner.gif"/>');
+        //     row.find('td:eq(2)').html('<p>Fetching</p>');
+        //   },
+        //   complete: function(){
+        //     // var id = row.attr('id');
+        //     // $(id).find('td:eq(2)').find('img').hide();
+        //   },
+        //   success: function(response) {
+        //     console.log(response)
+        //     var re = /"publicLink":"(.*?)"/i;
+        //     var linked_in_url_regex_response = response.match(re);
+        //     console.log(linked_in_url_regex_response)
+        //     if(linked_in_url_regex_response) {
+        //       var linked_in_url = linked_in_url_regex_response[1]
 
-              var id = row.attr('id');
-              $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL</p>');
+        //       var id = row.attr('id');
+        //       $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL</p>');
 
-              //postToAirtable(linked_in_url, id);
-            } else {
-              //
-              // NORMAL CODE, BEING OVERWRITTNE TO HELP CLIPPING WITHOUT LINKEDIN URL
-              //
-              // var id = row.attr('id');
-              // $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL NOT FOUND</p>');              
-              // console.log('error', linked_in_url_regex_response, response)
+        //       //postToAirtable(linked_in_url, id);
+        //     } else {
+        //       //
+        //       // NORMAL CODE, BEING OVERWRITTNE TO HELP CLIPPING WITHOUT LINKEDIN URL
+        //       //
+        //       // var id = row.attr('id');
+        //       // $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL NOT FOUND</p>');              
+        //       // console.log('error', linked_in_url_regex_response, response)
 
 
-              //
-              // BUG PATCH TO KEEP MOVING
-              //
-              var linked_in_url = "NOT FOUND"
+        //       //
+        //       // BUG PATCH TO KEEP MOVING
+        //       //
+        //       //var linked_in_url = "NOT FOUND"
+        //       var linked_in_url = sales_url;
 
-              var id = row.attr('id');
-              $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL</p>');
+        //       var id = row.attr('id');
+        //       $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL</p>');
 
-              //postToAirtable(linked_in_url, id);
-            }
+        //       //postToAirtable(linked_in_url, id);
+        //     }
+
+        //     //postToAirtable(linked_in_url, id);
             
-          },
-          error: function(xhr) {
-            $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL ERROR</p>');
-            console.log(xhr);
-          }
-        });
+        //   },
+        //   error: function(xhr) {
+        //     $('#' + id).find('td:eq(2)').html('<p>LinkedIn URL ERROR</p>');
+        //     console.log(xhr);
+
+        //     var linked_in_url = sales_url;
+        //     postToAirtable(linked_in_url, id);
+        //   }
+        // });
         
       })
     }

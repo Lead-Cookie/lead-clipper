@@ -15,7 +15,7 @@ function scrapeSalesNavigatorSearchResults() {
 }
 
 function parseLeadElement(lead_element) {
-  var salesUrl = $(lead_element).find('a[id*="ember"]').attr('href').split('?')[0];
+  var salesUrl = 'https://www.linkedin.com' + $(lead_element).find('a[id*="ember"]').attr('href').split('?')[0];
   
   var stringArray = $(lead_element).text(); //.split(/[^A-Za-z \.']/).slice(0, 1);
   var fullName = stringArray.trim();
