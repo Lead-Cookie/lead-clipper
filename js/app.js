@@ -4,13 +4,18 @@ $(document).ready(function() {
   var postToAirtable = function(linked_in_url, lead_id) {
     var firstName = $('#' + lead_id).data('first-name');
     var lastName = $('#' + lead_id).data('last-name');
+    var currentTitle = $('#' + lead_id).data('current-title');
+    var currentCompany = $('#' + lead_id).data('current-company');
     var airtable_api_key = window.localStorage.getItem("airtable-api-key");
     var airtable_base_id = window.localStorage.getItem("airtable-base-id");
     var airtable_list_id = window.localStorage.getItem("airtable-list-id");
 
 
     var url = 'https://api.airtable.com/v0/' + airtable_base_id + '/Leads';
-    var data = {"fields": {"List": airtable_list_id, "First Name": firstName, "Last Name": lastName, "LinkedIn URL": linked_in_url}}
+    var data = {"fields": {
+      "List": airtable_list_id, "First Name": firstName, "Last Name": lastName, "LinkedIn URL": linked_in_url,
+      "Title": currentTitle, "Company": currentCompany
+    }}
     console.log(data)
     var ajax = function() {
       $.ajax({
@@ -41,10 +46,12 @@ $(document).ready(function() {
       var trs = $.map(data, function(lead, index) {
         return '<tr id="lead-' + index + '" class="lead-row" data-last-name="' + 
                   lead.lastName +'" data-first-name="' + 
-                  lead.firstName +'" data-linkedin-url="'+ 
-                  lead.salesUrl + '"><td>' + 
+                  lead.firstName +'" data-linkedin-url="'+ lead.salesUrl +
+                  '" data-current-title="' + lead.currentTitle +
+                  '" data-current-company="' + lead.currentCompany +'"><td>' + 
                   lead.firstName + '</td><td>' + 
-                  lead.lastName + '</td><td><a class="btn-sm btn btn-secondary clip-lead">Clip</a></td></tr>';
+                  lead.lastName + '</td><td style="width:100px;">' + 
+                  lead.currentCompany + '</td><td><a class="btn-sm btn btn-secondary clip-lead">Clip</a></td></tr>';
       }).join("\n");
 
       $('#leads-table table tbody').append(trs);

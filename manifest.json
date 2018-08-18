@@ -3,7 +3,7 @@
 
     "name": "LeadCookie clipper",
     "description": "Send clipped leads to AirTable",
-    "version": "0.2.5",
+    "version": "0.2.7",
 
     "permissions": [
         "webRequest",
