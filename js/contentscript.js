@@ -33,31 +33,48 @@ function parseNewLeadElement(dt_classes) {
 
   var results = [];
   for(i=0;i<dt_classes.length;i++ ) {
+    var result = {firstName: '', lastName: '', salesUrl: '', currentTitle: '', currentCompany: ''};
+
     var item = $(dt_classes[i])
-    var name_part = item.find('dt.result-lockup__name');
-    var nameArray = $(name_part).find('a[id*="ember"]');
-    var salesUrl = 'https://www.linkedin.com' + nameArray.attr('href').split('?')[0];
 
-    //console.log(nameArray)
+    try{
+      var name_part = item.find('dt.result-lockup__name');
+      var nameArray = $(name_part).find('a[id*="ember"]');
+      result.salesUrl = 'https://www.linkedin.com' + nameArray.attr('href').split('?')[0];
 
-    var fullName = nameArray.text().trim();
-    var firstName = fullName.split(' ').slice(0, 1).join(' ');
-    var lastName = fullName.split(' ').slice(-1).join(' ');
+      //console.log(nameArray)
 
+      var fullName = nameArray.text().trim();
+      result.firstName = fullName.split(' ').slice(0, 1).join(' ');
+      result.lastName = fullName.split(' ').slice(-1).join(' ');
 
+    }catch(err){
+      continue
+    }
     //console.log(firstName, lastName);
 
-    var current = $(item).find("span.result-lockup__position-company").parent("dd").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
-    //console.log(current)
-    var current = current.split(' at ')
-    //console.log(current);
-    var title = current[0].trim();
-    var company = current[1].trim();
+    try{
+      var current = item.find("span.result-lockup__position-company").parent("dd").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
+      //console.log(current)
+      var current = current.split(' at ')
+      //console.log(current);
+      result.currentTitle = current[0].trim();
+      result.currentCompany = current[1].trim();
+    }catch(err){
 
-    //console.log(title, company);
-    //break;
+      //try highlighted keyword
+      try{
+        var current = item.find('dd.result-lockup__highlight-keyword');
+        result.currentTitle = $(current).find("span").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
+        result.currentCompany = $(current).find("a.result-lockup__position-company").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
+        
+      }catch(err){
+        //console.log(err)
+      }
 
-    results.push({firstName: firstName, lastName: lastName, salesUrl: salesUrl, currentTitle: title, currentCompany: company});
+    }
+
+    results.push(result);
   }
 
   return results;
