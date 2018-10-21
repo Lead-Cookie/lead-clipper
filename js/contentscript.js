@@ -43,8 +43,15 @@ function parseNewLeadElement(dt_classes) {
       try{
         var current = item.find('dd.result-lockup__highlight-keyword');
         result.currentTitle = $(current).find("span").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
-        result.currentCompany = $(current).find("a.result-lockup__position-company").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
+        var title = result.currentTitle.split(' at ');
+        result.currentTitle = title[0];
+        result.currentCompany = $(current).find("span.result-lockup__position-company").text().trim().replace(/(\r\n\t|\n|\r\t)/gm,"");
         
+        var company = result.currentCompany.split(' Go to ');
+        result.currentCompany = company[0];
+
+        // console.log('title', result.currentTitle);
+        // console.log('company', result.currentCompany)
       }catch(err){
         //console.log(err)
       }
